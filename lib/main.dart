@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:projone/homepage.dart';
+import 'package:projone/pages/homepage.dart';
+import 'package:projone/pages/loginpage.dart';
 
-void main(){    //entry point of app
+void main(){    //entry point of app , not in any class
   runApp(MyApp());
 }
 
@@ -12,10 +13,30 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    method(isTrue: false);
 
     return MaterialApp(
-        home: Homepage(),
+        //home: Homepage(),
+      themeMode: ThemeMode.light,
+      theme: ThemeData(     //Thememode.light defined
+        primarySwatch: Colors.deepOrange
+      ),
+      darkTheme: ThemeData(    //Thememode.dark defined
+        brightness: Brightness.dark
+      ),
+   initialRoute: "/home",   //setting initialroute to "/home" , by default set to "/"
+   routes: {
+          "/":(context) =>  Loginpage(),   // writing new LoginPage and LoginPage is same .
+          "/home" : (context) => Homepage()
+
+   },
     );
+  }
+
+
+  void method({ required bool isTrue  ,int a=9})
+  {
+
   }
 }
 
