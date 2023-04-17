@@ -40,8 +40,8 @@ class Loginpage extends StatelessWidget {
                 child: Text("LOGIN"),
                 style: TextButton.styleFrom(minimumSize: Size(100, 45)),      //setting size of login button
                 onPressed: (){
-               Navigator.push(context,
-                   MaterialPageRoute(builder: (context) => Homepage()));  //to navigate to homepage , context is re
+               // Navigator.push(context,
+               //     MaterialPageRoute(builder: (context) => Homepage()));  //to navigate to homepage , context is re
                 },
               )
               ],),
