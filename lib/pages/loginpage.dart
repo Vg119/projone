@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projone/pages/homepage.dart';
+import 'package:projone/utils/routes.dart';
 
 class Loginpage extends StatelessWidget {
 
@@ -36,9 +38,10 @@ class Loginpage extends StatelessWidget {
                 SizedBox(height: 20),
               ElevatedButton(
                 child: Text("LOGIN"),
-                style: TextButton.styleFrom(),
+                style: TextButton.styleFrom(minimumSize: Size(100, 45)),      //setting size of login button
                 onPressed: (){
-                  print("hello vergab");
+               Navigator.push(context,
+                   MaterialPageRoute(builder: (context) => Homepage()));  //to navigate to homepage , context is re
                 },
               )
               ],),

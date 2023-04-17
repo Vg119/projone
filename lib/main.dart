@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projone/pages/homepage.dart';
 import 'package:projone/pages/loginpage.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:projone/utils/routes.dart';
 
 void main(){    //entry point of app , not in any class
   runApp(MyApp());
@@ -28,8 +29,8 @@ class MyApp extends StatelessWidget {
       ),
   // initialRoute: "/home",   //setting initialroute to "/home" , by default set to "/"
    routes: {
-          "/":(context) =>  Loginpage(),   // writing new LoginPage and LoginPage is same .
-          "/home" : (context) => Homepage()
+          Myroutes.login:(context) =>  Loginpage(),   // writing new LoginPage and LoginPage is same .
+          Myroutes.homepg : (context) => Homepage()
 
    },
     );
