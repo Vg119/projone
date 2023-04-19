@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(    //Thememode.dark defined
         brightness: Brightness.dark
       ),
-  // initialRoute: "/home",   //setting initialroute to "/home" , by default set to "/"
+  initialRoute: Myroutes.homepg,   //setting initialroute to "/home" , by default set to "/"
    routes: {
           Myroutes.login:(context) =>  Loginpage(),   // writing new LoginPage and LoginPage is same .
           Myroutes.homepg : (context) => Homepage()
