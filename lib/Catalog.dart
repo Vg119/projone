@@ -8,11 +8,32 @@ class Myitems {    //each product to be displayed will be an obj of this class
 
   Myitems(this.id, this.name, this.desc, this.price, this.color, this.image);   //constructor
 
+  factory Myitems.fromMap(Map<String,dynamic> map)     // factory constructor which returns a Myitem obj after putting the reqd values in reqd variables.
+  {
+    return Myitems(
+
+      map["id"],
+      map["name"],
+      map["desc"],
+      map["price"],
+      map["color"],
+      map["image"]
+    );
+
+  }
+
+  toMap() =>  //returns a map made of the variables of Myitems obj.
+      {
+        "id" : id,
+        "name" : name,
+        "desc" : desc ,
+        "price" : price,
+        "color" : color,
+        "image" : image
+      };
+
 }
 
 class Catalog{
-  static List<Myitems> item = [
-    Myitems(1,  "iphone 12 pro", "Apple iPhone 12th generation", 999,"#33505a",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRISJ6msIu4AU9_M9ZnJVQVFmfuhfyJjEtbUm3ZK11_8IV9TV25-1uM5wHjiFNwKy99w0mR5Hk&usqp=CAc"),
-  ];
+  static List<Myitems> item = [] ;
 }

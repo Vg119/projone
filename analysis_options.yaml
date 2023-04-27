@@ -27,3 +27,9 @@ linter:
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
+
+
+# You need to register the plugin under analyzer > plugins
+analyzer:
+  plugins:
+    - data_class_plugin
