@@ -52,14 +52,47 @@ class _HomepageState extends State<Homepage> {
       ),
       body: Padding(  //to give padding to list
         padding: const EdgeInsets.all(8.0),
-        child: (Catalog.item.length!=0)? ListView.builder(    //makes a listview for items to be displayed . Listview is used to make a listview such that a view only the items presently seen on the screen r rendered along with +-2 items below and above
-          itemCount: Catalog.item.length,  // no of items
-          itemBuilder: (context,index){
-            return ItemWidget(
-                item:Catalog.item[index]   //this.item in ItemWidget constructor is named . Also this is the item widget to be displayed by lsitview builder.
-            );
-          }
-        )
+        child: (Catalog.item.length!=0)?
+        // ListView.builder(    //makes a listview for items to be displayed . Listview is used to make a listview such that a view only the items presently seen on the screen r rendered along with +-2 items below and above
+        //   itemCount: Catalog.item.length,  // no of items
+        //   itemBuilder: (context,index){
+        //     return ItemWidget(
+        //         item:Catalog.item[index]   //this.item in ItemWidget constructor is named . Also this is the item widget to be displayed by lsitview builder.
+        //     );
+        //   }
+        // )
+        GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2  ,                     //sliver is something all scrollable content have . crossaxis here is the row , since we are dealing with grid so no of elements in row is 2
+             mainAxisSpacing: 10
+            ),
+            itemBuilder: (context,index){
+              final item = Catalog.item[index];
+              return Card
+                (clipBehavior: Clip.antiAlias,
+                  shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(14)
+              ),
+
+                  child: GridTile(   //each grid element's design
+                      header: Container(
+                          color: Colors.purple,
+                          child: Text(item.name,
+                          style: TextStyle(color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25),)),
+                      child : Image.network(item.image),
+                      footer: Container(
+                          color: Colors.deepOrange,
+                          child: Text(item.price.toString(),
+                          style: TextStyle(color: Colors.black,
+                                 fontWeight: FontWeight.bold,
+                                 fontSize: 25),)
+                      ),
+                  )
+              );
+            },
+        itemCount: Catalog.item.length,)
             :
             Center(
               child: CircularProgressIndicator(),    //at the beginning when this the length of items array is 0 , then this shows circular loading widget becoz we gave a delay of 5 sec at loaddata
