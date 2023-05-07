@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projone/pages/Homepage2.dart';
 import 'package:projone/pages/homepage.dart';
 import 'package:projone/pages/loginpage.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,10 +23,12 @@ class MyApp extends StatelessWidget {
         //home: Homepage(),
       themeMode: ThemeMode.light,
       theme: Mytheme.lighttheme(context),   //taking theme from themes.dart (Mytheme class)
-      initialRoute: Myroutes.homepg,   //setting initialroute to "/home" , by default set to "/"
+      initialRoute: Myroutes.homepg2,   //setting initialroute to "/home" , by default set to "/"
    routes: {
           Myroutes.login:(context) =>  Loginpage(),   // writing new LoginPage and LoginPage is same .
-          Myroutes.homepg : (context) => Homepage()
+          Myroutes.homepg : (context) => Homepage(),
+          Myroutes.homepg2 : (context) => Homepage2()
+
 
    },
     );

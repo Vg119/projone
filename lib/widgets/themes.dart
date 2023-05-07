@@ -33,4 +33,7 @@ class Mytheme{
 
 
        );
+
+     static Color darkbluecolor  = Color(0xFF00008b);  //8 digit hex code to be used with 0xFF
+     static Color cream = Color(0xFFFFFDD0);
 }
