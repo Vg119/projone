@@ -4,6 +4,7 @@ import 'package:projone/pages/homepage.dart';
 import 'package:projone/pages/loginpage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:projone/utils/routes.dart';
+import 'package:projone/widgets/homepage2classes/Cartpage.dart';
 import 'package:projone/widgets/themes.dart';
 
 void main(){    //entry point of app , not in any class
@@ -24,10 +25,11 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: Mytheme.lighttheme(context),   //taking theme from themes.dart (Mytheme class)
       initialRoute: Myroutes.homepg2,   //setting initialroute to "/home" , by default set to "/"
-   routes: {
+   routes: {     //these are named routes , i.e used with Navigation.pushnamed
           Myroutes.login:(context) =>  Loginpage(),   // writing new LoginPage and LoginPage is same .
           Myroutes.homepg : (context) => Homepage(),
-          Myroutes.homepg2 : (context) => Homepage2()
+          Myroutes.homepg2 : (context) => Homepage2(),
+          Myroutes.cart : (context) => Cartpage()
 
 
    },

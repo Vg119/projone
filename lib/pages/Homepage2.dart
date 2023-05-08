@@ -1,7 +1,9 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:projone/utils/routes.dart';
 import 'package:projone/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';   //ui using velocity x
 
@@ -41,6 +43,14 @@ class _Homepage2State extends State<Homepage2> {
   Widget build(BuildContext context) {
      return Scaffold(
        backgroundColor: Mytheme.cream,
+       floatingActionButton: FloatingActionButton(
+         onPressed: () =>
+         {
+           Navigator.pushNamed(context, Myroutes.cart)    //navigates to cartpage
+         },
+         child: Icon(CupertinoIcons.cart),
+         backgroundColor: Mytheme.darkbluecolor,
+       ),
        body: SafeArea(    //safe area means leaving area of the battery(top) and bottom of screen
          child: Container(
            padding: Vx.m32,   //padding
