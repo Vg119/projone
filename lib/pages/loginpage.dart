@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:projone/pages/homepage.dart';
 import 'package:projone/utils/routes.dart';
+import 'package:velocity_x/velocity_x.dart';
+
+import 'Homepage2.dart';
 
 class Loginpage extends StatefulWidget {
   //1st class of stateful widget
@@ -32,7 +35,7 @@ class _LoginpageState extends State<Loginpage> {
           context,
           MaterialPageRoute(
               builder: (context) =>
-                  Homepage())); //to navigate to homepage , context is retreived from build
+                  Homepage2())); //to navigate to homepage , context is retreived from build
     }
 
   }
@@ -40,7 +43,7 @@ class _LoginpageState extends State<Loginpage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white, //white to match image to background
+      color: context.canvasColor, //white to match image to background
       child: SingleChildScrollView(
         //singlechildscrollview to make sure image fits in .
         child: Form(     //now everything inside is related to form
@@ -104,7 +107,7 @@ class _LoginpageState extends State<Loginpage> {
                     SizedBox(height: 20),
 
                     Material(
-                      color: Colors.orange,                                           //inkwell wrapped by material to make the splashcolour effect on clicking and the
+                      color: context.theme.buttonColor,                                           //inkwell wrapped by material to make the splashcolour effect on clicking and the
                                                                                        //decoration code is cpoied form button to here(material)
                       borderRadius: BorderRadius.circular(changebutton?30:6),
                      child: InkWell(

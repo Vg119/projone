@@ -18,15 +18,16 @@ class Homedetailpage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: context.cardColor,
       ), //to give back button in appbar
       bottomNavigationBar: Container( //for at navigation at the bottom
 
           child: ButtonBar( // a widget , same button bar from Catalogitem
+
               alignment: MainAxisAlignment.start,
               children: [
-                "\$${item.price}".text.xl5.make(), //a text
-                650.widthBox, //give a horizontal sized box of size 900
+                "\$${item.price}".text.xl3.make(), //a text
+                700.widthBox, //give a horizontal sized box of size 900
                 ElevatedButton( //a button
                     onPressed: () {},
                     style: ButtonStyle( //setting button style
@@ -37,8 +38,8 @@ class Homedetailpage extends StatelessWidget {
 
                     child: "Add to cart".text.make() //text of button
 
-                ).wh(120, 50)
-              ]).p32()
+                ).wh(120, 30)
+              ]).p24()
       ),
       body: SafeArea(
         bottom: false,
@@ -57,24 +58,22 @@ class Homedetailpage extends StatelessWidget {
                   arcType: VxArcType.CONVEY,
                   edge: VxEdge.TOP,
                   child: Container(
-                    color: Colors.white,
+                    color: context.cardColor,
                     width: context.screenWidth,
                     child: Column(
                       children: [
-                        item.name.text.bold.xl6.make(),
+                        item.name.text.bold.xl2.make(),
                         item.desc.text.textStyle(context.captionStyle).make(),
+                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                            " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+                            " when an unknown printer took a galley of type and scrambled it to make a type "
+                            "specimen book. It has survived not only five centuries, but also the leap into "
+                            .text.textStyle(context.captionStyle).make().p8()
                       ],
                     ).py64(),
                   ),
                 )),
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-                " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
-                " when an unknown printer took a galley of type and scrambled it to make a type "
-                "specimen book. It has survived not only five centuries, but also the leap into "
-                "electronic typesetting, remaining essentially unchanged. It was popularised in the "
-                "1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently"
-                " with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum "
-                .text.textStyle(context.captionStyle).make().p16()
+
           ],
         ),
       ),

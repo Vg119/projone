@@ -42,14 +42,14 @@ class _Homepage2State extends State<Homepage2> {
   @override
   Widget build(BuildContext context) {
      return Scaffold(
-       backgroundColor: Mytheme.cream,
+       backgroundColor: context.canvasColor,   //setting property of cintext , i.e colour of theme
        floatingActionButton: FloatingActionButton(
          onPressed: () =>
          {
            Navigator.pushNamed(context, Myroutes.cart)    //navigates to cartpage
          },
          child: Icon(CupertinoIcons.cart),
-         backgroundColor: Mytheme.darkbluecolor,
+         backgroundColor: context.theme.buttonColor,   //setting button colour of theme
        ),
        body: SafeArea(    //safe area means leaving area of the battery(top) and bottom of screen
          child: Container(
