@@ -35,5 +35,18 @@ class Myitems {    //each product to be displayed will be an obj of this class
 }
 
 class Catalog{
-  static List<Myitems> item = [] ;
+  static List<Myitems> item = [] ;  //list of items
+
+ static Myitems getbyId(int id)    //returns element by id
+      {
+        Myitems a = item.firstWhere((element) => element.id==id , orElse: null );   //returns first element that matches the condition , if not present assigns null
+        if(a == null)
+          throw Exception("element not present");
+        return a;
+
+      }
+
+    static  Myitems getbyPos(int pos) => item[pos];  //return the pos th item in list.
+
+
 }

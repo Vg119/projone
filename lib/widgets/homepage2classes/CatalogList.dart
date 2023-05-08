@@ -16,7 +16,7 @@ class CatalogList extends StatelessWidget {       //makes the list of elements
           shrinkWrap: true,
           itemCount: Catalog.item.length,
           itemBuilder: (context,index){
-            final catalogitem = Catalog.item[index];
+            final catalogitem = Catalog.item[index]; // Catalog.getbyPos(index) , this also does the same thing
             return InkWell(      //when u taap upon an item this opens homedetailpage
                  onTap: () => Navigator.push(context,
                      MaterialPageRoute(

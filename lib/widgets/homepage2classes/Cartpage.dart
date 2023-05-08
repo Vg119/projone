@@ -11,7 +11,7 @@ class Cartpage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey,
       appBar: AppBar(
-        title: "Cart items".text.make(),
+        title: "Cart items".text.xl5.make().centered(),
       ),
 
     );
