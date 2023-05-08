@@ -6,6 +6,8 @@ import 'package:projone/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';   //ui using velocity x
 
 import '../Catalog.dart';
+import '../widgets/homepage2classes/CatalogList.dart';
+import '../widgets/homepage2classes/Columnchilderen.dart';
 
 class Homepage2 extends StatefulWidget {
   const Homepage2({Key? key}) : super(key: key);
@@ -50,9 +52,7 @@ class _Homepage2State extends State<Homepage2> {
                if(Catalog.item!=null && Catalog.item.isNotEmpty)    //if not empty then displaying list
                   CatalogList()
                 else
-                  Center(
-                    child : CircularProgressIndicator()
-                  )
+                  CircularProgressIndicator().centered().expand()
 
 
 
@@ -65,90 +65,8 @@ class _Homepage2State extends State<Homepage2> {
   }
 }
 
-class Columnchilderen extends StatelessWidget {             //for displaying 2 texts
-  const Columnchilderen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        "Catalogue app".text.xl5.bold.color(Mytheme.darkbluecolor).make(),   //how to make text in velocity x
-        "Trending products".text.xl2.make()
 
 
-      ],
-    );
-  }
-}
-
-
-class CatalogList extends StatelessWidget {       //makes the list of elements
-  const CatalogList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        shrinkWrap: true,
-        itemCount: Catalog.item.length,
-          itemBuilder: (context,index){
-          final catalogitem = Catalog.item[index];
-          return Catalogitem(item :catalogitem);
-      }),
-    );
-  }
-}
-
-class Catalogitem extends StatelessWidget {    //makes each object to be displayed in list
-  final Myitems item;
-
-  const Catalogitem({super.key, required this.item})
-   :
-      assert(item!=null);   //item if null gives error
-
-
-
-
-  @override
-  Widget build(BuildContext context) {
-    return VxBox(
-
-      child: Row(
-        children: [
-          Image.network(item.image).box.p8.rounded.color(Mytheme.cream).make().p16().w40(context),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              item.name.text.bold.xl2.make(),
-              item.desc.text.textStyle(context.captionStyle).make(),
-              10.heightBox,    //sizedbox of 10 size
-              ButtonBar( // a widget
-                children :[
-                "\$${item.price}".text.make(),
-                ElevatedButton(
-                  onPressed: () {},
-                   style: ButtonStyle(    //setting button style
-                     backgroundColor: MaterialStateProperty.all(Mytheme.darkbluecolor),
-                     shape: MaterialStateProperty.all(StadiumBorder())
-                   ),
-
-                  child : "Buy".text.make()   //text of button
-
-                )
-             ] ).pOnly(right: 8.0)
-                                    //give padding to right of 8
-
-            ],
-          )
-        ],
-      )
-    ).white.rounded.square(100).make().py16();
-                                         //py means padding in y axis,rounded means rounded edges
-
-  }
-}
 
 
 
