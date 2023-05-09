@@ -35,6 +35,13 @@ class Myitems {    //each product to be displayed will be an obj of this class
 }
 
 class Catalog{
+  static final Catalog _singleton = Catalog._internal();    //making cartmodel a singleton class
+
+  factory Catalog() {
+    return _singleton;
+  }
+
+  Catalog._internal();
   static List<Myitems> item = [] ;  //list of items
 
   Myitems getbyId(int id)    //returns element by id

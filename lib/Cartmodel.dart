@@ -2,6 +2,15 @@
 import 'package:projone/Catalog.dart';
 
 class CartModel{  // cartmodel
+
+  static final CartModel _singleton = CartModel._internal();    //making cartmodel a singleton class
+
+  factory CartModel() {
+    return _singleton;
+  }
+
+  CartModel._internal();
+
   late Catalog _catalog ;   //late is a keyword by which u promise dart that u will initialise this _catalog later , this happens due to null safety.
 
   final List<int> _itemids = []; // collection of ids in cart

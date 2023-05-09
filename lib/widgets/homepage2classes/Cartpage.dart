@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projone/Cartmodel.dart';
 import 'package:projone/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:projone/Catalog.dart';
 
 class Cartpage extends StatelessWidget {
   const Cartpage({Key? key}) : super(key: key);
@@ -27,7 +29,7 @@ class Cartpage extends StatelessWidget {
 }
 
 class _Carttotal extends StatelessWidget {    //a customised widget that displays price and buy button
-  const _Carttotal({Key? key}) : super(key: key);
+  final _cart = new CartModel();   //obj of cartmodel
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,7 @@ class _Carttotal extends StatelessWidget {    //a customised widget that display
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          "\$9999".text.xl5.color(context.theme.accentColor).make(),
+          "\$${_cart.totalPrice()}".text.xl5.color(context.theme.accentColor).make(),    //displays total price
           100.widthBox,
           ElevatedButton(
               onPressed: () {
@@ -61,14 +63,15 @@ class Cartlist extends StatefulWidget {
 }
 
 class _CartlistState extends State<Cartlist> {
+  final _cart = new CartModel();
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: 6,
+        itemCount: _cart.cartitems.length,
         itemBuilder: (context,index)=> ListTile(
           leading: Icon(Icons.check_box),
-          title : 'Item ${index+1}'.text.make(),
           trailing: Icon(Icons.remove_circle),
+          title: Text(_cart.cartitems[index].name),//to display each item of cart model
         )
     );
   }
