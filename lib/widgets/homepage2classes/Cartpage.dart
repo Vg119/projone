@@ -9,7 +9,7 @@ class Cartpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: context.canvasColor,
       appBar: AppBar(
         title: "Cart items".text.xl5.make().centered(),
       ),
@@ -39,7 +39,9 @@ class _Carttotal extends StatelessWidget {    //a customised widget that display
           "\$9999".text.xl5.color(context.theme.accentColor).make(),
           100.widthBox,
           ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: "Buyimg not supported".text.make()));  //scaffoldmessenger shows snackbar at bottom and top of screen
+              },
               style: ButtonStyle(
                 backgroundColor: 
                   MaterialStateProperty.all(context.theme.buttonColor)

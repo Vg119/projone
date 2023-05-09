@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         //home: Homepage(),
       themeMode: ThemeMode.light,
-      theme: Mytheme.lighttheme(context),   //taking theme from themes.dart (Mytheme class)
+      theme: Mytheme.darktheme(context),   //taking theme from themes.dart (Mytheme class)
       initialRoute: Myroutes.homepg2,   //setting initialroute to "/home" , by default set to "/"
    routes: {     //these are named routes , i.e used with Navigation.pushnamed
           Myroutes.login:(context) =>  Loginpage(),   // writing new LoginPage and LoginPage is same .
