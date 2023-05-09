@@ -4,6 +4,7 @@ import 'package:projone/Catalog.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../themes.dart';
+import 'Addtocart.dart';
 
 class Homedetailpage extends StatelessWidget {
   //this opens when any item is tapped upon
@@ -28,17 +29,7 @@ class Homedetailpage extends StatelessWidget {
               children: [
                 "\$${item.price}".text.xl3.make(), //a text
                 700.widthBox, //give a horizontal sized box of size 900
-                ElevatedButton( //a button
-                    onPressed: () {},
-                    style: ButtonStyle( //setting button style
-                        backgroundColor: MaterialStateProperty.all(
-                            Mytheme.darkbluecolor),
-                        shape: MaterialStateProperty.all(StadiumBorder())
-                    ),
-
-                    child: "Add to cart".text.make() //text of button
-
-                ).wh(120, 30)
+                Addtocart(item : item).wh(120, 30)   //add to cart widget
               ]).p24()
       ),
       body: SafeArea(
