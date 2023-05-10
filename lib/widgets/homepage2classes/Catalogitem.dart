@@ -5,6 +5,7 @@ import 'package:velocity_x/velocity_x.dart';
 
 import '../../Catalog.dart';
 import '../themes.dart';
+import 'AddtoCart.dart';
 
 class Catalogitem extends StatelessWidget {    //makes each object to be displayed in list
   final Myitems item;
@@ -53,44 +54,3 @@ class Catalogitem extends StatelessWidget {    //makes each object to be display
   }
 }
 
-class Addtocart extends StatefulWidget {   //add to cart is a stateful widget as when we click on it it becomes a check sign
-  final Myitems item;
-  const Addtocart({
-    super.key, required this.item,
-  });
-
-  @override
-  State<Addtocart> createState() => _AddtocartState(item);
-}
-
-class _AddtocartState extends State<Addtocart> {
-  bool is_added = false;
-  Myitems item ;
-
-
-  _AddtocartState(this.item);
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(   //a button
-        onPressed: () {
-         is_added = is_added.toggle();     // make the boolean reverse of initial value , true if false and vice versa
-         Catalog catalog = Catalog();
-          CartModel cartModel = CartModel();
-          cartModel.catalog = catalog;
-          cartModel.add(item);
-          setState(() {             //recall the build() for changing state
-
-          });
-        },
-        style: ButtonStyle(    //setting button style
-          //  backgroundColor: MaterialStateProperty.all(Mytheme.darkbluecolor),
-          backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
-            shape: MaterialStateProperty.all(StadiumBorder())
-        ),
-
-        child : is_added?Icon(Icons.check):"Add to cart".text.make()   // if already added then show check else shoe text
-
-    );
-  }
-}

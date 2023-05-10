@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projone/Catalog.dart';
+import 'package:projone/widgets/homepage2classes/AddtoCart.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../themes.dart';
 
-class Homedetailpage extends StatelessWidget {
+class Homedetailpage extends StatefulWidget {
   //this opens when any item is tapped upon
   final Myitems item;
 
@@ -13,7 +14,11 @@ class Homedetailpage extends StatelessWidget {
       :
         assert(item != null);
 
+  @override
+  State<Homedetailpage> createState() => _HomedetailpageState();
+}
 
+class _HomedetailpageState extends State<Homedetailpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,20 +31,12 @@ class Homedetailpage extends StatelessWidget {
 
               alignment: MainAxisAlignment.start,
               children: [
-                "\$${item.price}".text.xl3.make(), //a text
+                "\$${widget.item.price}".text.xl3.make(), //a text
                 700.widthBox, //give a horizontal sized box of size 900
-                ElevatedButton( //a button
-                    onPressed: () {},
-                    style: ButtonStyle( //setting button style
-                        backgroundColor: MaterialStateProperty.all(
-                            Mytheme.darkbluecolor),
-                        shape: MaterialStateProperty.all(StadiumBorder())
-                    ),
+               Addtocart(item: widget.item).wh(120, 30)
 
-                    child: "Add to cart".text.make() //text of button
-
-                ).wh(120, 30)
               ]).p24()
+
       ),
       body: SafeArea(
         bottom: false,
@@ -48,9 +45,9 @@ class Homedetailpage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Hero(tag: Key(item.id.toString()),
+            Hero(tag: Key(widget.item.id.toString()),
                 //hero coming from catalogitem , on clicking an item
-                child: Image.network(item.image).centered().py4()),
+                child: Image.network(widget.item.image).centered().py4()),
 
             Expanded(
                 child: VxArc( //a type of widget to give convex/concave effect to edges
@@ -62,8 +59,8 @@ class Homedetailpage extends StatelessWidget {
                     width: context.screenWidth,
                     child: Column(
                       children: [
-                        item.name.text.bold.xl2.make(),
-                        item.desc.text.textStyle(context.captionStyle).make(),
+                        widget.item.name.text.bold.xl2.make(),
+                        widget.item.desc.text.textStyle(context.captionStyle).make(),
                         "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
                             " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
                             " when an unknown printer took a galley of type and scrambled it to make a type "

@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         //home: Homepage(),
       themeMode: ThemeMode.light,
       theme: Mytheme.darktheme(context),   //taking theme from themes.dart (Mytheme class)
-      initialRoute: Myroutes.homepg2,   //setting initialroute to "/home" , by default set to "/"
+      initialRoute: Myroutes.login,   //setting initialroute to "/home" , by default set to "/"
    routes: {     //these are named routes , i.e used with Navigation.pushnamed
           Myroutes.login:(context) =>  Loginpage(),   // writing new LoginPage and LoginPage is same .
           Myroutes.homepg : (context) => Homepage(),

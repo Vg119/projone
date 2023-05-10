@@ -66,11 +66,18 @@ class _CartlistState extends State<Cartlist> {
   final _cart = new CartModel();
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return (_cart.cartitems.isEmpty)?"Empty cart".text.xl5.make().centered(): ListView.builder(
         itemCount: _cart.cartitems.length,
         itemBuilder: (context,index)=> ListTile(
           leading: Icon(Icons.check_box),
-          trailing: Icon(Icons.remove_circle),
+          trailing: IconButton( icon : Icon(Icons.remove_circle),
+          onPressed: () {
+            _cart.remove(_cart.cartitems[index]);
+            setState(() {
+
+
+            });
+          },),
           title: Text(_cart.cartitems[index].name),//to display each item of cart model
         )
     );
