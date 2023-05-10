@@ -1,4 +1,6 @@
 import 'package:projone/Catalog.dart';
+import 'package:projone/Mystore.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class CartModel {
   // cartmodel
@@ -43,4 +45,18 @@ class CartModel {
   void remove(Myitems item) {
     _itemids.remove(item.id);
   }
+}
+
+class Addcartmutation extends VxMutation<Mystore>  //mutation to change addtocart button .<Mystore> as we can directly access store.
+{
+  final Myitems item;
+
+  Addcartmutation(this.item);
+
+  @override
+  perform() {
+   store?.cartModel.cartitems.add(item.id);   //adding item to cart's list
+  }
+
+
 }

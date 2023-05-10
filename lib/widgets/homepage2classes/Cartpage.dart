@@ -5,6 +5,8 @@ import 'package:projone/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:projone/Catalog.dart';
 
+import '../../Mystore.dart';
+
 class Cartpage extends StatelessWidget {
   const Cartpage({Key? key}) : super(key: key);
 
@@ -29,7 +31,8 @@ class Cartpage extends StatelessWidget {
 
 class _Carttotal extends StatelessWidget {
   //a customised widget that displays price and buy button
-  final _cart = new CartModel(); //obj of cartmodel
+  //final _cart = new CartModel(); //obj of cartmodel
+  final _cart = (VxState.store as Mystore).cartModel;   //takimg vx store's cart model
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +68,8 @@ class _Carttotal extends StatelessWidget {
 class Cartlist extends StatelessWidget {
   Cartlist({Key? key}) : super(key: key);
 
-  final _cart = CartModel();
+  //final _cart = CartModel();
+  final _cart = (VxState.store as Mystore).cartModel;   //takimg vx store's cart model
 
   @override
   Widget build(BuildContext context) {
